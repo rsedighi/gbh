@@ -23,11 +23,20 @@ class EventsController < ApplicationController
   def edit
   end
 
+  def receive_text
+    @message_body = params["Body"]
+    @from_number = params["From"]
+    @event = Event.find(@message_body)
+    @event.user_response = true
+    @event.save
+    render nothing: true
+end
+
   # POST /events
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
+    @event.uid = current_user.id
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -72,6 +81,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:details, :when, :where, :uid, :user_response)
+      params.require(:event).permit(:details, :time, :where, :uid, :user_response)
     end
 end

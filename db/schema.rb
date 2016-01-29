@@ -11,16 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129040000) do
+ActiveRecord::Schema.define(version: 20160129075919) do
 
   create_table "events", force: :cascade do |t|
     t.text     "details"
-    t.datetime "when"
+    t.datetime "time"
     t.string   "where"
     t.string   "uid"
     t.string   "user_response"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.string   "rsvp"
+    t.boolean  "confirmation"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "phone_number"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,6 +48,9 @@ ActiveRecord::Schema.define(version: 20160129040000) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "phone_number"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

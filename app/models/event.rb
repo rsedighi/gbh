@@ -1,5 +1,8 @@
 class Event < ActiveRecord::Base
 
+  has_many :responses
+  has_many :users
+
   def send_text_message
   @client = Twilio::REST::Client.new  ENV["account_sid"], ENV["auth_token"]
 

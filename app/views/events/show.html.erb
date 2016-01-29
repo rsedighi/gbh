@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>When:</strong>
-  <%= @event.when %>
+  <strong>Time:</strong>
+  <%= @event.time %>
 </p>
 
 <p>
@@ -15,15 +15,19 @@
   <%= @event.where %>
 </p>
 
-<!-- <p>
+<p>
   <strong>Uid:</strong>
-  <%#= @event.uid %>
+  <%= @event.uid %>
 </p>
 
-<p>
+<!-- <p>
   <strong>User response:</strong>
   <%#= @event.user_response %>
-</p> -->
+</p>
+ -->
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+<%#= link_to 'Add Comment', [:new, @commentable, :user_response]%>
+

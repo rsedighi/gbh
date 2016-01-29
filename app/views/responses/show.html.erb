@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<!-- <p>
+  <strong>Rsvp:</strong>
+  <%#= @response.rsvp %>
+</p> -->
+
+<p>
+  <strong>Confirmation:</strong>
+  <%= @response.confirmation %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @response.first_name %> <%= @response.last_name %>
+</p>
+
+<p>
+  <strong>Confirmation:</strong>
+  <%= @response.phone_number %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_response_path(@response) %> |
+<%= link_to 'Back', responses_path %>
