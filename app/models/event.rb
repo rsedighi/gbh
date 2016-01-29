@@ -12,7 +12,7 @@ class Event < ActiveRecord::Base
     end
     @client.messages.create(
       :from => "+1#{ENV["twilio_phone_number"]}",
-      :to => "5103253257",
+      :to => "#{ENV["my_number"]}",
       :body => details
     )
   end

@@ -23,14 +23,7 @@ class EventsController < ApplicationController
   def edit
   end
 
-  def receive_text
-    @message_body = params["Body"]
-    @from_number = params["From"]
-    @event = Event.find(@message_body)
-    @event.user_response = true
-    @event.save
-    render nothing: true
-end
+
 
   # POST /events
   # POST /events.json

@@ -21,6 +21,17 @@ class ResponsesController < ApplicationController
   def edit
   end
 
+
+  def send_to_me
+    @message_body = params["Body"]
+    @from_number = params["From"]
+    @event = Event.find(@message_body)
+    @event.user_response = true
+    @event.save
+    render nothing: true
+  end
+
+
   # POST /responses
   # POST /responses.json
   def create
